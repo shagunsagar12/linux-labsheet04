@@ -1,0 +1,122 @@
+mkdir lab6
+touch lab6/permissions.txt
+
+ls -l lab6/permissions.txt
+
+chmod u=rwx,g=rw,o= lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+chmod 640 lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+chmod 755 lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+chmod u-x lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+chmod g+rx lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+chmod o-rwx lab6/permissions.txt
+ls -l lab6/permissions.txt
+
+mkdir securedata
+chmod 750 securedata
+ls -ld securedata
+
+mkdir practice
+touch practice/file.txt
+
+chmod 644 practice/file.txt
+chmod 755 practice
+
+ls -l practice
+ls -ld practice
+
+cat practice/file.txt
+ls practice
+
+umask
+
+umask 027
+
+touch newfile.txt
+mkdir newdirectory
+
+ls -l newfile.txt
+ls -ld newdirectory
+
+umask 022
+umask
+
+sudo groupadd aclgroup
+sudo useradd acluser
+sudo usermod -aG aclgroup acluser
+
+touch aclfile.txt
+
+getfacl aclfile.txt
+
+sudo setfacl -m u:acluser:rw aclfile.txt
+getfacl aclfile.txt
+
+sudo setfacl -m g:aclgroup:r aclfile.txt
+getfacl aclfile.txt
+
+sudo setfacl -m u:acluser:r aclfile.txt
+getfacl aclfile.txt
+
+sudo setfacl -x u:acluser aclfile.txt
+getfacl aclfile.txt
+
+mkdir acldirectory
+
+sudo setfacl -d -m u:acluser:rw,g:aclgroup:r acldirectory
+
+getfacl acldirectory
+
+touch acldirectory/testfile.txt
+
+getfacl acldirectory/testfile.txt
+
+mkdir lab6_complete
+
+touch lab6_complete/file.txt
+
+chmod 640 lab6_complete/file.txt
+ls -l lab6_complete/file.txt
+
+umask 027
+
+touch lab6_complete/newfile.txt
+mkdir lab6_complete/newdirectory
+
+ls -l lab6_complete/newfile.txt
+ls -ld lab6_complete/newdirectory
+
+sudo setfacl -m u:acluser:rw lab6_complete/file.txt
+sudo setfacl -m g:aclgroup:r lab6_complete/file.txt
+
+getfacl lab6_complete/file.txt
+
+sudo setfacl -x u:acluser lab6_complete/file.txt
+getfacl lab6_complete/file.txt
+
+umask 022
+umask
+
+sudo setfacl -b lab6_complete/file.txt
+getfacl lab6_complete/file.txt
+
+rm -rf lab6_complete
+rm -rf lab6
+rm -rf securedata
+rm -rf practice
+rm -rf acldirectory
+rm -f aclfile.txt
+rm -f newfile.txt
+rmdir newdirectory
+
+sudo userdel acluser
+sudo groupdel aclgroup

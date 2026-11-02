@@ -1,0 +1,157 @@
+ps
+
+ps -e
+
+ps aux
+
+ps -ef --forest
+
+top
+
+top
+
+htop
+
+sleep 300
+
+sleep 300 &
+
+jobs
+
+fg %1
+
+sleep 300
+
+jobs
+
+bg %1
+
+jobs
+
+jobs -l
+
+sleep 300 &
+
+ps
+
+kill PID
+
+ps -p PID
+
+sleep 300 &
+
+kill -TERM PID
+
+ps -p PID
+
+sleep 300 &
+
+kill -KILL PID
+
+ps -p PID
+
+sleep 300 &
+
+pkill -x sleep
+
+pgrep sleep
+
+sleep 300
+
+sleep 300 &
+
+sleep 300 &
+
+ps aux | grep sleep
+
+jobs -l
+
+fg %1
+
+Ctrl+C
+
+sleep 300
+
+Ctrl+Z
+
+jobs
+
+bg %1
+
+jobs
+
+sleep 300 &
+
+ps aux | grep sleep
+
+kill -TERM PID
+
+ps -p PID
+
+sleep 300
+
+sleep 300 &
+
+jobs -l
+
+fg %1
+
+Ctrl+C
+
+sleep 300
+
+Ctrl+Z
+
+jobs
+
+bg %1
+
+jobs -l
+
+sleep 300 &
+
+kill -TERM PID
+
+ps -p PID
+
+jobs
+
+ps aux
+
+ps -ef --forest
+
+top
+
+htop
+
+sleep 300
+
+Ctrl+C
+
+sleep 300 &
+
+jobs -l
+
+fg %1
+
+Ctrl+Z
+
+jobs
+
+bg %1
+
+jobs -l
+
+ps aux | grep sleep
+
+kill -TERM PID
+
+ps -p PID
+
+pkill -x sleep
+
+pgrep sleep
+
+jobs
+
+ps aux

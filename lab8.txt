@@ -1,0 +1,72 @@
+rpm --version
+
+dnf --version
+
+rpm -qa | grep bash
+
+rpm -qi bash
+
+rpm -ql bash
+
+rpm -qf /bin/bash
+
+rpm -qi bash
+
+dnf repolist
+
+dnf repoinfo
+
+dnf search tree
+
+sudo dnf install tree -y
+
+rpm -q tree
+
+dnf info tree
+
+dnf check-update
+
+sudo dnf update tree -y
+
+rpm -q tree
+dnf info tree
+
+sudo dnf update -y
+
+dnf check-update
+
+sudo dnf remove tree -y
+
+rpm -q tree
+
+dnf provides tree
+
+dnf history
+
+dnf history info
+
+rpm -qa | grep tree
+
+sudo dnf install tree -y
+
+rpm -qi tree
+
+dnf info tree
+
+sudo dnf update tree -y
+
+rpm -qi tree
+
+sudo dnf remove tree -y
+
+rpm -q tree
+
+dnf history
+
+dnf repolist
+
+sudo dnf clean all
+
+dnf repolist
+
+rpm -qa | sort

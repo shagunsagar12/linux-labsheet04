@@ -1,0 +1,112 @@
+
+mkdir archive_lab
+cd archive_lab
+
+echo "This is the first sample file." > file1.txt
+echo "This is the second sample file." > file2.txt
+echo "This is the third sample file." > file3.txt
+
+cat file1.txt
+cat file2.txt
+cat file3.txt
+
+cd ..
+
+
+tar -cvf files.tar archive_lab
+ls -lh files.tar
+
+tar -tvf files.tar
+
+mkdir extracted_tar
+tar -xvf files.tar -C extracted_tar
+ls extracted_tar/archive_lab
+
+gzip archive_lab/file1.txt
+ls archive_lab
+
+
+gunzip archive_lab/file1.txt.gz
+ls archive_lab
+cat archive_lab/file1.txt
+
+
+tar -czvf archive.tar.gz archive_lab
+
+tar -tzvf archive.tar.gz
+
+
+mkdir extracted_tar_gz
+tar -xzvf archive.tar.gz -C extracted_tar_gz
+ls extracted_tar_gz/archive_lab
+
+
+zip files.zip archive_lab/file1.txt archive_lab/file2.txt archive_lab/file3.txt
+
+unzip -l files.zip
+
+mkdir extracted_zip
+unzip files.zip -d extracted_zip
+ls extracted_zip
+
+
+
+mkdir single_file_extract
+unzip files.zip archive_lab/file1.txt -d single_file_extract
+ls single_file_extract
+
+
+zip -r directory.zip archive_lab
+unzip -l directory.zip
+
+
+tar -czvf compressed_archive.tar.gz archive_lab
+
+# tar = Creates an archive containing multiple files/directories.
+# gzip = Compresses the archive to reduce its size.
+# -c = Create archive
+# -z = Compress using gzip
+# -v = Verbose output
+# -f = Specify archive filename
+
+
+tar -cvf updated.tar archive_lab
+
+echo "This is an additional file." > extra.txt
+
+tar -rvf updated.tar extra.txt
+
+tar -tvf updated.tar
+
+
+tar -cvf comparison.tar archive_lab
+tar -czvf comparison.tar.gz archive_lab
+
+ls -lh comparison.tar comparison.tar.gz
+
+tar -tvf comparison.tar
+tar -tzvf comparison.tar.gz
+
+
+
+
+mkdir final_tar_extract
+tar -xzvf archive.tar.gz -C final_tar_extract
+
+mkdir final_zip_extract
+unzip files.zip -d final_zip_extract
+
+ls final_tar_extract
+ls final_zip_extract
+
+
+mkdir practice
+echo "Practice file 1" > practice/file1.txt
+echo "Practice file 2" > practice/file2.txt
+echo "Practice file 3" > practice/file3.txt
+
+tar -czvf practice_backup.tar.gz practice
+
+ls -lh practice_backup.tar.gz
+
+tar -tzvf practice_backup.tar.gz

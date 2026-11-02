@@ -1,0 +1,92 @@
+whoami
+id
+groups
+
+grep labuser1 /etc/passwd
+
+sudo passwd -S labuser1
+
+sudo useradd labuser1
+getent passwd labuser1
+
+sudo useradd -m labuser2
+ls -ld /home/labuser2
+
+sudo useradd -s /bin/bash labuser3
+getent passwd labuser3
+
+sudo passwd labuser1
+sudo passwd -S labuser1
+
+sudo passwd labuser1
+sudo passwd -S labuser1
+
+sudo usermod -s /bin/bash labuser2
+getent passwd labuser2
+
+sudo usermod -d /home/newhome labuser2
+getent passwd labuser2
+
+sudo usermod -d /home/newhome -m labuser2
+ls -ld /home/newhome
+
+sudo groupadd userlabgroup
+sudo usermod -aG userlabgroup labuser1
+groups labuser1
+
+sudo passwd -l labuser3
+sudo passwd -S labuser3
+
+sudo passwd -u labuser3
+sudo passwd -S labuser3
+
+sudo chage -l labuser3
+
+sudo chage -E 2027-12-31 labuser3
+sudo chage -l labuser3
+
+sudo groupadd primarygroup
+sudo usermod -g primarygroup labuser1
+id labuser1
+
+id labuser2
+groups labuser2
+getent passwd labuser2
+getent group userlabgroup
+
+sudo userdel labuser1
+getent passwd labuser1
+ls -ld /home/labuser1
+
+sudo userdel -r labuser2
+getent passwd labuser2
+ls -ld /home/newhome
+
+sudo useradd -m labuser4
+sudo passwd labuser4
+sudo usermod -s /bin/bash labuser4
+sudo groupadd labgroup4
+sudo usermod -aG labgroup4 labuser4
+id labuser4
+
+sudo passwd -l labuser4
+sudo passwd -S labuser4
+
+sudo passwd -u labuser4
+sudo passwd -S labuser4
+
+sudo userdel -r labuser3
+sudo userdel -r labuser4
+
+sudo groupdel userlabgroup
+sudo groupdel primarygroup
+sudo groupdel labgroup4
+
+getent passwd labuser1
+getent passwd labuser2
+getent passwd labuser3
+getent passwd labuser4
+
+getent group userlabgroup
+getent group primarygroup
+getent group labgroup4
